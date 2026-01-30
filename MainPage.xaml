@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MathQuiz.MainPage">
+    <VerticalStackLayout Padding="20" Spacing="20">
+        <Label Text="MathQuiz"
+               FontSize="24"
+               HorizontalOptions="Center" />
+        <Label Text="Ćwicz dodawanie, odejmowanie, mnożenie i dzielenie." />
+        <Label Text="Autor: Piotr Łuczak pluczak99@gmail.com" />
+        <Button Text="Start" Clicked="OnStartClicked" Margin="10,30,10,30"/>
+        <CollectionView x:Name="HistoryView">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Label>
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{Binding Operation}" />
+                                <Span Text=" | Poprawne: " />
+                                <Span Text="{Binding Correct}" />
+                                <Span Text=" | Błędne: " />
+                                <Span Text="{Binding TotalMinusCorrect}" />
+                                <Span Text=" | Procent: " />
+                                <Span Text="{Binding Percent, StringFormat='{0:F0}%'}" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,14 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MathQuiz.AnswerPage">
+    <VerticalStackLayout Padding="20">
+        <ProgressBar x:Name="ProgressBar" HeightRequest="6" />
+        <Label x:Name="QuestionProgress" FontSize="16" Margin="10,30,10,30"/>
+        <Grid ColumnDefinitions="Auto,*" ColumnSpacing="10">
+            <Label x:Name="ResultIcon" FontSize="24" Grid.Column="0" VerticalOptions="Center" />
+            <Label x:Name="ResultLabel" FontSize="20" Grid.Column="1" VerticalOptions="Center" />
+        </Grid>
+        <Button x:Name="Next" Text="Dalej" Clicked="OnNext" Margin="10,30,10,30"/>
+        <Button Text="Koniec" BackgroundColor="{DynamicResource Secondary}" Clicked="OnFinishClicked" Margin="10,30,10,30"/>
+    </VerticalStackLayout>
+</ContentPage>

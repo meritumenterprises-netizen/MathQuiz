@@ -1,0 +1,8 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MathQuiz.SummaryPage">
+    <VerticalStackLayout Padding="20">
+        <Label x:Name="SummaryLabel" FontSize="22" Margin="10,30,10,30"/>
+        <Button Text="Koniec" Clicked="OnEnd" Margin="10,10,10,10"/>
+    </VerticalStackLayout>
+</ContentPage>

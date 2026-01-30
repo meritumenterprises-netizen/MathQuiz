@@ -1,0 +1,11 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MathQuiz.CountPage">
+    <VerticalStackLayout Padding="20">
+        <Button Text="10 pytań" Clicked="OnSetCount10" Margin="10,10,10,10"/>
+        <Button Text="20 pytań" Clicked="OnSetCount20" Margin="10,10,10,10"/>
+        <Button Text="30 pytań" Clicked="OnSetCount30" Margin="10,10,10,10"/>
+        <Button Text="40 pytań" Clicked="OnSetCount40" Margin="10,10,10,10"/>
+        <Button Text="50 pytań" Clicked="OnSetCount50" Margin="10,10,10,10"/>
+    </VerticalStackLayout>
+</ContentPage>

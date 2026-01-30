@@ -1,0 +1,31 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MathQuiz.QuestionPage">
+    <VerticalStackLayout Padding="20">
+        <ProgressBar x:Name="ProgressBar" HeightRequest="6" />
+        <Label x:Name="QuestionProgress" FontSize="16" Margin="10,30,10,30"/>
+        <ProgressBar x:Name="ProgressBarQuestion" HeightRequest="6" Progress="1" />
+        <Label x:Name="TimerLabel" FontSize="16" Margin="10,30,10,30"/>
+        <Label x:Name="QuestionLabel" FontSize="22" Margin="10,10,10,10"/>
+        <Grid
+    ColumnDefinitions="*,Auto"
+    ColumnSpacing="10" Margin="10,10,10,10">
+
+            <Entry
+        x:Name="AnswerEntry"
+        Grid.Column="0"
+        Keyboard="Numeric"
+        Placeholder="Twoja odpowiedź"
+        HorizontalOptions="Fill"
+        />
+
+            <Button
+        Grid.Column="1"
+        Text="Odpowiedz"
+        Clicked="OnAnswer"
+        HorizontalOptions="End"
+        />
+        </Grid>
+        <Button Text="Koniec" BackgroundColor="{DynamicResource Secondary}" Clicked="OnFinishClicked" Margin="10,10,10,10"/>
+    </VerticalStackLayout>
+</ContentPage>
