@@ -14,7 +14,7 @@ public partial class QuestionPage : ContentPage
         ProgressBar.Progress = (double)(AppState.CurrentQuestion + 1) / AppState.QuestionCount;
         QuestionProgress.Text = $"Pytanie {AppState.CurrentQuestion + 1} z {AppState.QuestionCount}";
         GenerateQuestion();
-        remainingTime = time;
+        remainingTime = time + 1;
         StartTimer();
         AnswerEntry.Completed += (s, e) => OnAnswer(s, e);
     }
@@ -67,7 +67,7 @@ public partial class QuestionPage : ContentPage
                 break;
 
         }
-        QuestionLabel.Text = $"{AppState.A} {AppState.Operation} {AppState.B}";
+        QuestionLabel.Text = $"{AppState.A} {AppState.Operation} {AppState.B} = ";
         ProgressBarQuestion.Progress = 1;
     }
 

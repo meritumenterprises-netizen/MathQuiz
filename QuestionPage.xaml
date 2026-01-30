@@ -6,24 +6,24 @@
         <Label x:Name="QuestionProgress" FontSize="16" Margin="10,30,10,30"/>
         <ProgressBar x:Name="ProgressBarQuestion" HeightRequest="6" Progress="1" />
         <Label x:Name="TimerLabel" FontSize="16" Margin="10,30,10,30"/>
-        <Label x:Name="QuestionLabel" FontSize="22" Margin="10,10,10,10"/>
         <Grid
-    ColumnDefinitions="*,Auto"
-    ColumnSpacing="10" Margin="10,10,10,10">
-
+    ColumnDefinitions="Auto,*,Auto"
+    ColumnSpacing="5" Margin="10,10,10,10">
+            <Label x:Name="QuestionLabel" FontSize="22" Grid.Column="0" VerticalOptions="Center"/>
             <Entry
         x:Name="AnswerEntry"
-        Grid.Column="0"
+        Grid.Column="1"
         Keyboard="Numeric"
         Placeholder="Twoja odpowiedź"
-        HorizontalOptions="Fill"
+        FontSize="22"
+        VerticalOptions="Center"
         />
 
             <Button
-        Grid.Column="1"
+        Grid.Column="2"
         Text="Odpowiedz"
         Clicked="OnAnswer"
-        HorizontalOptions="End"
+        VerticalOptions="Center"
         />
         </Grid>
         <Button Text="Koniec" BackgroundColor="{DynamicResource Secondary}" Clicked="OnFinishClicked" Margin="10,10,10,10"/>

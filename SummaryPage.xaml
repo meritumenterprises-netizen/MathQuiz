@@ -3,6 +3,6 @@
              x:Class="MathQuiz.SummaryPage">
     <VerticalStackLayout Padding="20">
         <Label x:Name="SummaryLabel" FontSize="22" Margin="10,30,10,30"/>
-        <Button Text="Koniec" Clicked="OnEnd" Margin="10,10,10,10"/>
+        <Button x:Name="Finish" Text="Koniec" Clicked="OnEnd" Margin="10,10,10,10"/>
     </VerticalStackLayout>
 </ContentPage>

@@ -16,6 +16,19 @@ public partial class SummaryPage : ContentPage
                             $"Błędne: {wrong} ({percentBad:F0}%)";
     }
 
+    protected override void OnNavigatedTo(NavigatedToEventArgs args)
+    {
+        base.OnNavigatedTo(args);
+
+        Dispatcher.DispatchDelayed(TimeSpan.FromMilliseconds(100), () =>
+        {
+            if (Finish?.IsEnabled == true && Finish.IsVisible)
+            {
+                Finish.Focus();
+            }
+        });
+    }
+
     private void OnEnd (object sender, EventArgs e)
     {
         Application.Current.MainPage = new NavigationPage(new MainPage());
