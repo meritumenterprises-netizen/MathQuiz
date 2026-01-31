@@ -19,14 +19,18 @@ public partial class MainPage : ContentPage
         base.OnAppearing();
         try
         {
-            var results = await db.GetLastFiveResults();
+            var results = await db.GetLast10Results();
             var displayResults = results.Select(r => new
             {
                 r.Operation,
                 r.Correct,
+                r.Total,
                 TotalMinusCorrect = r.Total - r.Correct,
-                Percent = (double)r.Correct / r.Total * 100
-            }).ToList();
+                Percent = (double)r.Correct / r.Total * 100,
+                QuizStartTime = r.QuizStartDate.ToString("g"),
+				StatusIcon = ((double)r.Correct / r.Total * 100) == 100 ? "✔" : "✖",
+				StatusColor = ((double)r.Correct / r.Total * 100) == 100 ? Colors.Green : Colors.Red
+			}).ToList();
             HistoryView.ItemsSource = displayResults;
         }
         catch (Exception ex)
@@ -39,4 +43,9 @@ public partial class MainPage : ContentPage
     {
         await Navigation.PushAsync(new OperationPage());
     }
+
+	private async void OnEmailTapped(object sender, EventArgs e)
+	{
+		await Launcher.OpenAsync(new Uri("mailto:pluczak99@gmail.com"));
+	}
 }

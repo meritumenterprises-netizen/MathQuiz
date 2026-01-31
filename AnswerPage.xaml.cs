@@ -7,7 +7,9 @@ using MathQuiz.Services;
 public partial class AnswerPage : ContentPage
 {
     DatabaseService db = new();
-    public AnswerPage()
+	System.Timers.Timer timer;
+
+	public AnswerPage()
     {
         InitializeComponent();
         ProgressBar.Progress = (double)(AppState.CurrentQuestion + 1) / AppState.QuestionCount;
@@ -43,7 +45,8 @@ public partial class AnswerPage : ContentPage
         }
         QuestionProgress.Text = $"Pytanie {AppState.CurrentQuestion + 1} z {AppState.QuestionCount}";
         UpdateCurrentResultInDb();
-    }
+        StartTimer();
+	}
 
     protected override void OnNavigatedTo(NavigatedToEventArgs args)
     {
@@ -64,7 +67,7 @@ public partial class AnswerPage : ContentPage
         await db.Init();
         // usuń poprzedni wpis dla bieżącego quizu, jeśli istnieje
         var existing = await db.db.Table<MathQuiz.Models.ResultHistory>()
-                        .Where(r => r.Operation == AppState.Operation && r.Total == AppState.QuestionCount)
+                        .Where(r => r.Operation == AppState.Operation && r.Total == AppState.QuestionCount && r.QuizStartDate == AppState.QuizStartTime)
                         .OrderByDescending(r => r.Id).FirstOrDefaultAsync();
         if (existing != null)
         {
@@ -77,9 +80,9 @@ public partial class AnswerPage : ContentPage
         }
     }
 
-
     async void OnNext(object sender, EventArgs e)
     {
+        timer.Stop();
         AppState.CurrentQuestion++;
         if (AppState.CurrentQuestion >= AppState.QuestionCount)
             await Navigation.PushAsync(new SummaryPage());
@@ -91,4 +94,20 @@ public partial class AnswerPage : ContentPage
     {
         await Navigation.PushAsync(new SummaryPage());
     }
+
+	void StartTimer()
+	{
+		timer = new System.Timers.Timer(5000);
+		timer.Elapsed += (s, e) =>
+		{
+			timer.Stop();
+			MainThread.BeginInvokeOnMainThread(async () =>
+			{
+                timer.Stop();
+				OnNext(this, EventArgs.Empty);
+			});
+		};
+		timer.Start();
+	}
+
 }

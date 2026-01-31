@@ -7,26 +7,59 @@
                FontSize="24"
                HorizontalOptions="Center" />
         <Label Text="Ćwicz dodawanie, odejmowanie, mnożenie i dzielenie." />
-        <Label Text="Autor: Piotr Łuczak pluczak99@gmail.com" />
-        <Button Text="Start" Clicked="OnStartClicked" Margin="10,30,10,30"/>
+		<Label>
+			<Label.FormattedText>
+				<FormattedString>
+					<Span Text="Autor: Piotr Łuczak " />
+					<Span
+                Text="pluczak99@gmail.com"
+                TextColor="Blue"
+                TextDecorations="Underline">
+						<Span.GestureRecognizers>
+							<TapGestureRecognizer Tapped="OnEmailTapped" />
+						</Span.GestureRecognizers>
+					</Span>
+				</FormattedString>
+			</Label.FormattedText>
+		</Label>
+		<Button Text="Start" Clicked="OnStartClicked" Margin="10,30,10,30"/>
         <CollectionView x:Name="HistoryView">
             <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Label>
-                        <Label.FormattedText>
-                            <FormattedString>
-                                <Span Text="{Binding Operation}" />
-                                <Span Text=" | Poprawne: " />
-                                <Span Text="{Binding Correct}" />
-                                <Span Text=" | Błędne: " />
-                                <Span Text="{Binding TotalMinusCorrect}" />
-                                <Span Text=" | Procent: " />
-                                <Span Text="{Binding Percent, StringFormat='{0:F0}%'}" />
-                            </FormattedString>
-                        </Label.FormattedText>
-                    </Label>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
+				<DataTemplate>
+					<Grid ColumnDefinitions="Auto,Auto,Auto,Auto,Auto" ColumnSpacing="10">
+						<!-- Ikona statusu -->
+						<Label Grid.Column="0" FontSize="24" TextColor="{Binding StatusColor}" Text="{Binding StatusIcon}" VerticalOptions="Center" />
+						<!-- Typ operacji -->
+						<Label Grid.Column="1" Text="{Binding Operation}" VerticalOptions="Center" />
+						<!-- Poprawne/Błędne -->
+						<Label Grid.Column="2" VerticalOptions="Center">
+							<Label.FormattedText>
+								<FormattedString>
+									<Span Text="{Binding Correct}"/>
+									<Span Text="/"/>
+									<Span Text="{Binding Total}"/>
+								</FormattedString>
+							</Label.FormattedText>
+						</Label>
+						<!-- Procent -->
+						<Label Grid.Column="3" VerticalOptions="Center">
+							<Label.FormattedText>
+								<FormattedString>
+									<Span Text="{Binding Percent}" />
+									<Span Text="%" />
+								</FormattedString>
+							</Label.FormattedText>
+						</Label>
+						<Label Grid.Column="4" VerticalOptions="Center">
+							<Label.FormattedText>
+								<FormattedString>
+									<Span Text="{Binding QuizStartTime,StringFormat='{0:yy-MM-dd HH:mm}'}"/>
+								</FormattedString>
+							</Label.FormattedText>
+						</Label>
+					</Grid>
+				</DataTemplate>
+			</CollectionView.ItemTemplate>
         </CollectionView>
     </VerticalStackLayout>
 </ContentPage>

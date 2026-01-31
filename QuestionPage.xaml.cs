@@ -56,6 +56,12 @@ public partial class QuestionPage : ContentPage
                 {
                     AppState.A = rnd.Next(1, 11);
                     AppState.B = rnd.Next(1, AppState.MaxRange / AppState.A + 1); 
+                    if (AppState.A > AppState.B) // podmień, aby pierwszy był mniejszy
+					{
+                        var temp = AppState.A;
+                        AppState.A = AppState.B;
+                        AppState.B = temp;
+                    }
                 }
                 break;
             case "/":

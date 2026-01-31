@@ -12,6 +12,8 @@ public static class AppState
     public static int CurrentQuestion = 0;
     public static int CorrectAnswers = 0;
 
-    public static int A, B;
+    public static DateTime QuizStartTime;
+
+	public static int A, B;
     public static int UserAnswer;
 }
