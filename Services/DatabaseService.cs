@@ -20,11 +20,11 @@ namespace MathQuiz.Services
         await Init();
         await db.InsertAsync(new ResultHistory
         {
-            QuizStartDate = DateTime.Now,
+            QuizStartDate = AppState.QuizStartTime,
 			Operation = operation,
             Correct = correct,
-            Total = total
-        });
+            Total = total,
+		});
     }
 
     public async Task<List<ResultHistory>> GetLast10Results()

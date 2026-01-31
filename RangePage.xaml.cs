@@ -7,7 +7,8 @@ public partial class RangePage : ContentPage
     async void SetRange(int range)
     {
         AppState.MaxRange = range;
-        await Navigation.PushAsync(new CountPage());
+        AppState.QuizStartTime = DateTime.Now;
+		await Navigation.PushAsync(new CountPage());
     }
 
     private void Do30_Clicked(object sender, EventArgs e)

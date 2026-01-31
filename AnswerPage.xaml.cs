@@ -27,7 +27,6 @@ public partial class AnswerPage : ContentPage
         {
             AppState.CorrectAnswers++;
             ResultLabel.Text = "Poprawna odpowiedź";
-            ResultLabel.Text = "Poprawna odpowiedź";
             ResultIcon.Text = "✔"; // zielony check
             ResultIcon.TextColor = Colors.Green;
             HapticFeedback.Perform(HapticFeedbackType.Click);
@@ -67,7 +66,8 @@ public partial class AnswerPage : ContentPage
         await db.Init();
         // usuń poprzedni wpis dla bieżącego quizu, jeśli istnieje
         var existing = await db.db.Table<MathQuiz.Models.ResultHistory>()
-                        .Where(r => r.Operation == AppState.Operation && r.Total == AppState.QuestionCount && r.QuizStartDate == AppState.QuizStartTime)
+                        .Where(r => r.Operation == AppState.Operation && r.Total == AppState.QuestionCount && 
+                        r.QuizStartDate == AppState.QuizStartTime)
                         .OrderByDescending(r => r.Id).FirstOrDefaultAsync();
         if (existing != null)
         {
