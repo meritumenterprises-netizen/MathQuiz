@@ -7,7 +7,7 @@ using LiveChartsCore.SkiaSharpView.Painting;
 using MathQuiz.Services;
 using SkiaSharp;
 
-public class PieData(string name, double value, SolidColorPaint paint)
+public class PieData(string name, double value, SolidColorPaint paint, string label)
 {
 	public string Name { get; set; } = name;
 	public double[] Values { get; set; } = [value];
@@ -18,7 +18,7 @@ public class PieData(string name, double value, SolidColorPaint paint)
 			var pv = point.Coordinate.PrimaryValue;
 			var sv = point.StackedValue!;
 
-			return $"{pv}/{sv.Total}{Environment.NewLine}{sv.Share:P0}";
+			return $"{label}: {pv}/{sv.Total}{Environment.NewLine}{sv.Share:P0}";
 		};
 }
 
@@ -58,8 +58,8 @@ public partial class SummaryPage : ContentPage
 
 	public PieData[] Data { get; set; } = [
 
-	new ("Prawidłowe", AppState.CorrectAnswers, new SolidColorPaint(SKColors.Green)),
-		new ("Błędne", AppState.QuestionCount - AppState.CorrectAnswers, new SolidColorPaint(SKColors.Red))
+	new ("Prawidłowe", AppState.CorrectAnswers, new SolidColorPaint(SKColors.Green),"Poprawne"),
+		new ("Błędne", AppState.QuestionCount - AppState.CorrectAnswers, new SolidColorPaint(SKColors.Red), "Złe")
 	];
 
 }

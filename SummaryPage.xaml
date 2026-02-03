@@ -13,6 +13,7 @@
                         ShowDataLabels="True"
                         SeriesName="{Binding Name}"
                         Fill="{Binding Fill}"
+                        Pushout="10"
                         DataLabelsFormatter="{Binding Formatter}"
                         Values="{Binding Values}"/>
 				</DataTemplate>
