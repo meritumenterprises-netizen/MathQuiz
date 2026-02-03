@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using LiveChartsCore.SkiaSharpView.Maui;
+using Microsoft.Extensions.Logging;
+using SkiaSharp.Views.Maui.Controls.Hosting;
 
 namespace MathQuiz
 {
@@ -8,7 +10,9 @@ namespace MathQuiz
         {
             var builder = MauiApp.CreateBuilder();
             builder
-                .UseMauiApp<App>()
+				.UseLiveCharts()
+				.UseSkiaSharp()
+				.UseMauiApp<App>()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

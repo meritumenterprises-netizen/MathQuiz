@@ -1,8 +1,30 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MathQuiz.SummaryPage">
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
+             xmlns:vms="clr-namespace:MathQuiz;assembly=MathQuiz"
+             x:Class="MathQuiz.SummaryPage"
+             x:DataType="vms:SummaryPage">
     <VerticalStackLayout Padding="20">
         <Label x:Name="SummaryLabel" FontSize="22" Margin="10,30,10,30"/>
-        <Button x:Name="Finish" Text="Koniec" Clicked="OnEnd" Margin="10,10,10,10"/>
-    </VerticalStackLayout>
+		<lvc:PieChart x:Name="PieChart" SeriesSource="{Binding Data}" HeightRequest="300" WidthRequest="300" InitialRotation="-90">
+            <lvc:PieChart.SeriesTemplate>
+                <DataTemplate x:DataType="vms:PieData">
+                    <lvc:XamlPieSeries
+                        ShowDataLabels="True"
+                        SeriesName="{Binding Name}"
+                        Fill="{Binding Fill}"
+                        DataLabelsFormatter="{Binding Formatter}"
+                        Values="{Binding Values}"/>
+				</DataTemplate>
+            </lvc:PieChart.SeriesTemplate>
+            <lvc:PieChart.Title>
+                <lvc:XamlDrawnLabelVisual
+                    Text="Odpowiedzi"
+                    Paint="{lvc:SolidColorPaint Color='#000'}"
+                    TextSize="25"
+                    Padding="15"/>
+            </lvc:PieChart.Title>
+        </lvc:PieChart>
+		<Button x:Name="Finish" Text="Koniec" Clicked="OnEnd" Margin="10,10,10,10"/>
+	</VerticalStackLayout>
 </ContentPage>

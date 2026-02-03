@@ -1,4 +1,66 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="456" height="456" viewBox="0 0 456 456" version="1.1" xmlns="http://www.w3.org/2000/svg">
-    <rect x="0" y="0" width="456" height="456" fill="#512BD4" />
+<svg
+   width="456"
+   height="456"
+   viewBox="0 0 456 456"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="appicon.svg"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1">
+    <rect
+       x="22.60223"
+       y="213.59108"
+       width="396.66914"
+       height="186.4684"
+       id="rect2" />
+  </defs>
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="1.7697368"
+     inkscape:cx="228"
+     inkscape:cy="228"
+     inkscape:window-width="1920"
+     inkscape:window-height="1009"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <rect
+     x="-1.6951673"
+     y="2.8252788"
+     width="456"
+     height="456"
+     fill="#512bd4"
+     id="rect1" />
+  <text
+     xml:space="preserve"
+     style="writing-mode:lr-tb;direction:ltr;white-space:pre;inline-size:359.486;display:inline;fill:#ffffff;fill-opacity:1"
+     x="37.293678"
+     y="55.940521"
+     id="text1"
+     transform="matrix(7.0575977,0,0,7.5846213,-183.06952,-249.54813)"><tspan
+       x="37.293678"
+       y="55.940521"
+       id="tspan3">+/-/*/÷</tspan></text>
+  <text
+     xml:space="preserve"
+     id="text2"
+     style="writing-mode:lr-tb;direction:ltr;white-space:pre;shape-inside:url(#rect2);display:inline;fill:#ffffff;fill-opacity:1"
+     transform="matrix(5.176597,0,0,5.7500632,-34.31066,-953.76898)"><tspan
+       x="22.601562"
+       y="224.53976"
+       id="tspan4">Math Quiz</tspan></text>
 </svg>
