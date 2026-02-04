@@ -56,10 +56,7 @@ public partial class SummaryPage : ContentPage
 		Application.Current.MainPage = new NavigationPage(new MainPage());
 	}
 
-	public PieData[] Data { get; set; } = [
-
-	new ("Prawidłowe", AppState.CorrectAnswers, new SolidColorPaint(SKColors.Green),"Poprawne"),
-		new ("Błędne", AppState.QuestionCount - AppState.CorrectAnswers, new SolidColorPaint(SKColors.Red), "Złe")
-	];
+	public PieData[] Data { get; set; } = [new("Prawidłowe", AppState.CorrectAnswers, new SolidColorPaint(SKColors.Green), "Poprawne"),
+						new("Błędne", AppState.QuestionCount - AppState.CorrectAnswers, new SolidColorPaint(SKColors.Red), "Złe")];
 
 }
