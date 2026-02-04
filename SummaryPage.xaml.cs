@@ -18,7 +18,7 @@ public class PieData(string name, double value, SolidColorPaint paint, string la
 			var pv = point.Coordinate.PrimaryValue;
 			var sv = point.StackedValue!;
 
-			return $"{label}: {pv}/{sv.Total}{Environment.NewLine}{sv.Share:P0}";
+			return $"{label}: {pv}/{sv.Total}{Environment.NewLine}{sv.Share:P2}";
 		};
 }
 
