@@ -18,7 +18,7 @@ public class PieData(string name, double value, SolidColorPaint paint, string la
 			var pv = point.Coordinate.PrimaryValue;
 			var sv = point.StackedValue!;
 
-			return $"{label}: {pv}/{sv.Total}{Environment.NewLine}{sv.Share:P2}";
+			return $"{label}: {pv}/{sv.Total}{Environment.NewLine}{Environment.NewLine}{sv.Share:P0}";
 		};
 }
 
@@ -32,8 +32,8 @@ public partial class SummaryPage : ContentPage
 		double percentGood = (double)AppState.CorrectAnswers / AppState.QuestionCount * 100;
 		double percentBad = 100 - percentGood;
 
-		SummaryLabel.Text = $"Poprawne: {AppState.CorrectAnswers} ({percentGood:F0}%)\n\n" +
-							$"Błędne: {wrong} ({percentBad:F0}%)";
+		SummaryLabel.Text = $"Poprawne: {AppState.CorrectAnswers} ({percentGood:F1}%)\n\n" +
+							$"Błędne: {wrong} ({percentBad:F1}%)";
 		PieChart.BindingContext = this;
 	}
 

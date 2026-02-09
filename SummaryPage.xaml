@@ -3,25 +3,32 @@
              xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.Maui;assembly=LiveChartsCore.SkiaSharpView.Maui"
              xmlns:vms="clr-namespace:MathQuiz;assembly=MathQuiz"
              x:Class="MathQuiz.SummaryPage"
-             x:DataType="vms:SummaryPage">
+             x:DataType="vms:SummaryPage"
+             x:Name="RootPage"> 
     <VerticalStackLayout Padding="20">
         <Label x:Name="SummaryLabel" FontSize="22" Margin="10,30,10,30"/>
-		<lvc:PieChart x:Name="PieChart" SeriesSource="{Binding Data}" HeightRequest="300" WidthRequest="300" InitialRotation="-90">
+		<lvc:PieChart x:Name="PieChart" SeriesSource="{Binding Data}" HeightRequest="300" WidthRequest="300" InitialRotation="-90"
+					  Background="{Binding Source={x:Reference RootPage}, Path=Background}">
             <lvc:PieChart.SeriesTemplate>
                 <DataTemplate x:DataType="vms:PieData">
                     <lvc:XamlPieSeries
                         ShowDataLabels="True"
                         SeriesName="{Binding Name}"
                         Fill="{Binding Fill}"
+                        
                         Pushout="10"
                         DataLabelsFormatter="{Binding Formatter}"
-                        Values="{Binding Values}"/>
+                        Values="{Binding Values}">
+                        <lvc:XamlPieSeries.DataLabelsPaint>
+                            <lvc:SolidColorPaint Color="#FFFFFFFF" />
+                        </lvc:XamlPieSeries.DataLabelsPaint>
+                    </lvc:XamlPieSeries>
 				</DataTemplate>
             </lvc:PieChart.SeriesTemplate>
             <lvc:PieChart.Title>
                 <lvc:XamlDrawnLabelVisual
                     Text="Odpowiedzi"
-                    Paint="{lvc:SolidColorPaint Color='#000'}"
+                    Paint="{lvc:SolidColorPaint Color='#FFF'}"
                     TextSize="25"
                     Padding="15"/>
             </lvc:PieChart.Title>
